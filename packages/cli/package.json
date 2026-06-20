@@ -1,0 +1,49 @@
+{
+  "name": "@snowieedev/shipkit",
+  "version": "1.0.0",
+  "description": "The command line interface for ShipKit - Build Faster. Ship Smarter.",
+  "main": "dist/index.js",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "test": "vitest run",
+    "test:coverage": "vitest run --coverage",
+    "build": "tsc",
+    "start": "node ./dist/index.js"
+  },
+  "keywords": [
+    "shipkit",
+    "cli",
+    "deployment",
+    "saas",
+    "boilerplate",
+    "developer-tools"
+  ],
+  "author": "ShipKit",
+  "license": "MIT",
+  "type": "module",
+  "dependencies": {
+    "axios": "^1.18.0",
+    "chalk": "^5.6.2",
+    "commander": "^15.0.0",
+    "conf": "^15.1.0",
+    "figlet": "^1.11.0",
+    "gradient-string": "^3.0.0",
+    "inquirer": "^14.0.2",
+    "ora": "^9.4.0",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@types/figlet": "^1.7.0",
+    "@types/gradient-string": "^1.1.6",
+    "@types/inquirer": "^9.0.10",
+    "@types/node": "^20.19.43",
+    "@vitest/coverage-v8": "^4.1.9",
+    "typescript": "^5.9.3",
+    "vitest": "^4.1.9"
+  },
+  "bin": {
+    "shipkit": "dist/index.js"
+  }
+}
