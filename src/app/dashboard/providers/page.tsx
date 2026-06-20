@@ -21,8 +21,8 @@ export default async function ProvidersPage() {
   // Then fetch providers for these projects
   const { data: providers } = projectIds.length > 0 
     ? await supabase
-        .from('providers')
-        .select('*, projects(name)')
+        .from('provider_connections')
+        .select('id, provider_name:provider, created_at, updated_at, projects(name)')
         .in('project_id', projectIds)
         .order('created_at', { ascending: false })
     : { data: [] }

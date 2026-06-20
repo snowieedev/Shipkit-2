@@ -21,8 +21,8 @@ export async function GET(request: Request) {
   }
 
   const { data, error } = await supabase
-    .from('providers')
-    .select('id, project_id, provider_name, created_at, updated_at, projects(name)')
+    .from('provider_connections')
+    .select('id, project_id, provider_name:provider, created_at, updated_at, projects(name)')
     .order('created_at', { ascending: false })
 
   if (error) {
@@ -74,13 +74,13 @@ export async function POST(request: Request) {
     const encrypted_config = encrypt(JSON.stringify(configuration))
 
     const { data, error } = await supabase
-      .from('providers')
+      .from('provider_connections')
       .insert({
         project_id,
-        provider_name,
-        encrypted_config
+        provider: provider_name,
+        encrypted_credentials: encrypted_config
       })
-      .select('id, project_id, provider_name, created_at, updated_at')
+      .select('id, project_id, provider_name:provider, created_at, updated_at')
       .single()
 
     if (error) {

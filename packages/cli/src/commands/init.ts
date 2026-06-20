@@ -26,7 +26,7 @@ export const initCommand = new Command('init')
         }
       },
       {
-        type: 'list',
+        type: 'select',
         name: 'framework',
         message: 'Framework\n›',
         choices: ['Next.js', 'React (Vite)', 'Vue', 'SvelteKit', 'Node.js Backend'],
