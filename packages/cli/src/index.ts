@@ -10,6 +10,8 @@ import { initCommand } from './commands/init.js';
 import { providersCommand } from './commands/providers.js';
 import { apiCommand } from './commands/api.js';
 import { whoamiCommand } from './commands/whoami.js';
+import { addCommand } from './commands/add.js';
+import { fixCommand } from './commands/fix.js';
 
 const program = new Command();
 
@@ -50,5 +52,7 @@ program.addCommand(initCommand);
 program.addCommand(providersCommand);
 program.addCommand(apiCommand);
 program.addCommand(whoamiCommand);
+program.addCommand(addCommand);
+program.addCommand(fixCommand);
 
 program.parse(process.argv);

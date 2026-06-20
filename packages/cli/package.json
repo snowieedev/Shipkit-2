@@ -1,6 +1,6 @@
 {
   "name": "@snowieedev/shipkit",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "description": "The command line interface for ShipKit - Build Faster. Ship Smarter.",
   "main": "dist/index.js",
   "files": [
