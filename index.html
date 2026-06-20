@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ShipKit — Unified AI Infrastructure Platform</title>
+  <meta name="description" content="Integrate one unified API & SDK, and instantly access OpenAI, Anthropic, Google Gemini, Llama, Mistral, and Cohere. Built for infrastructure resiliency.">
+  
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="src/styles/variables.css">
+  <link rel="stylesheet" href="src/styles/main.css">
+  <link rel="stylesheet" href="src/styles/components.css">
+  <link rel="stylesheet" href="src/styles/landing.css">
+  <link rel="stylesheet" href="src/styles/docs.css">
+  <link rel="stylesheet" href="src/styles/dashboard.css">
+</head>
+<body>
+  <div id="app">
+    <!-- Header injected dynamically -->
+    <header id="header-root"></header>
+
+    <!-- Main View Area -->
+    <main id="root" class="page-content"></main>
+
+    <!-- Footer injected dynamically -->
+    <footer id="footer-root"></footer>
+  </div>
+
+  <!-- Toast Notification Overlay Container -->
+  <div id="toast-container" class="toast-container"></div>
+
+  <!-- Modal Overlay Container -->
+  <div id="modal-container" class="modal-overlay"></div>
+
+  <!-- Main Routing Application -->
+  <script type="module" src="src/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+{
+  "name": "shipkit-phase-1",
+  "version": "1.0.0",
+  "description": "ShipKit Phase 1 Foundation Website",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx http-server -p 3000 -c-1"
+  },
+  "keywords": [
+    "shipkit",
+    "ai",
+    "infrastructure",
+    "developer",
+    "platform"
+  ],
+  "author": "ShipKit Team",
+  "license": "MIT",
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  }
+}
