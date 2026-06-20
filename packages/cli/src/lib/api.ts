@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { getAuth } from './storage.js';
 
-const API_URL = process.env.SHIPKIT_API_URL || 'http://localhost:3000';
+const API_URL = process.env.SHIPKIT_API_URL || 'https://shipkit-bice.vercel.app';
 
 export const apiClient = axios.create({
   baseURL: `${API_URL}/api`,
@@ -15,6 +15,16 @@ apiClient.interceptors.request.use((config) => {
   }
   return config;
 });
+
+apiClient.interceptors.response.use(
+  (response) => response,
+  (error) => {
+    if (error.code === 'ECONNREFUSED' || (error.name === 'AggregateError' && !error.message)) {
+      error.message = `Could not connect to ShipKit API at ${error.config?.baseURL || API_URL}. Is the server running?`;
+    }
+    return Promise.reject(error);
+  }
+);
 
 export const api = {
   login: async (email: string, password: string) => {
