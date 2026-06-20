@@ -2,18 +2,14 @@ import { Command } from 'commander';
 import ora from 'ora';
 import chalk from 'chalk';
 import { api } from '../lib/api.js';
-import { getAuth } from '../lib/storage.js';
+import { AuthGuard } from '../lib/authGuard.js';
 
 export const providersCommand = new Command('providers')
   .description('View connected providers')
   .action(async () => {
-    const auth = getAuth();
-    if (!auth || !auth.token) {
-      console.log(`\n${chalk.red('✗')} Unauthorized\n\nPlease run ${chalk.cyan('shipkit login')} first.\n`);
-      process.exit(1);
-    }
+    AuthGuard.requireFullyAuthenticated();
 
-    const spinner = ora('Fetching provider status...').start();
+    const spinner = ora('Fetching providers...').start();
 
     try {
       const providers = await api.getProviders();

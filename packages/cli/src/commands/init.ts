@@ -5,16 +5,12 @@ import chalk from 'chalk';
 import fs from 'fs';
 import path from 'path';
 import { api } from '../lib/api.js';
-import { getAuth } from '../lib/storage.js';
+import { AuthGuard } from '../lib/authGuard.js';
 
 export const initCommand = new Command('init')
   .description('Create a ShipKit project')
   .action(async () => {
-    const auth = getAuth();
-    if (!auth || !auth.token) {
-      console.log(`\n${chalk.red('✗')} Unauthorized\n\nPlease run ${chalk.cyan('shipkit login')} first.\n`);
-      process.exit(1);
-    }
+    AuthGuard.requireFullyAuthenticated();
 
     console.log('');
 

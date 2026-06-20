@@ -8,7 +8,8 @@ vi.mock('axios', () => {
     default: {
       create: vi.fn(() => ({
         interceptors: {
-          request: { use: vi.fn() }
+          request: { use: vi.fn() },
+          response: { use: vi.fn() }
         },
         post: vi.fn(),
         get: vi.fn()
@@ -74,5 +75,25 @@ describe('API Client', () => {
     const result = await api.getProviders();
     expect(apiClient.get).toHaveBeenCalledWith('/providers');
     expect(result[0].provider_name).toBe('Supabase');
+  });
+
+  it('verifyApiKey should call post /cli/verify-key', async () => {
+    (apiClient.post as any).mockResolvedValue({
+      data: { success: true }
+    });
+
+    const result = await api.verifyApiKey('sk_live_123');
+    expect(apiClient.post).toHaveBeenCalledWith('/cli/verify-key', { apiKey: 'sk_live_123' });
+    expect(result.success).toBe(true);
+  });
+
+  it('whoami should call get /cli/whoami', async () => {
+    (apiClient.get as any).mockResolvedValue({
+      data: { success: true, user: { email: 'test@example.com' } }
+    });
+
+    const result = await api.whoami();
+    expect(apiClient.get).toHaveBeenCalledWith('/cli/whoami');
+    expect(result.user.email).toBe('test@example.com');
   });
 });

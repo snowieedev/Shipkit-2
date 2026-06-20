@@ -8,6 +8,8 @@ import { loginCommand } from './commands/login.js';
 import { logoutCommand } from './commands/logout.js';
 import { initCommand } from './commands/init.js';
 import { providersCommand } from './commands/providers.js';
+import { apiCommand } from './commands/api.js';
+import { whoamiCommand } from './commands/whoami.js';
 
 const program = new Command();
 
@@ -46,5 +48,7 @@ program.addCommand(loginCommand);
 program.addCommand(logoutCommand);
 program.addCommand(initCommand);
 program.addCommand(providersCommand);
+program.addCommand(apiCommand);
+program.addCommand(whoamiCommand);
 
 program.parse(process.argv);

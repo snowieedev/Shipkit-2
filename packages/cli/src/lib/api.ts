@@ -43,4 +43,12 @@ export const api = {
     const { data } = await apiClient.get('/providers');
     return data.providers;
   },
+  verifyApiKey: async (apiKey: string) => {
+    const { data } = await apiClient.post('/cli/verify-key', { apiKey });
+    return data;
+  },
+  whoami: async () => {
+    const { data } = await apiClient.get('/cli/whoami');
+    return data;
+  },
 };

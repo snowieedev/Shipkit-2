@@ -4,6 +4,7 @@ import ora from 'ora';
 import chalk from 'chalk';
 import { api } from '../lib/api.js';
 import { setAuth } from '../lib/storage.js';
+import { APIKeyManager } from '../lib/apiKeyManager.js';
 
 export const loginCommand = new Command('login')
   .description('Authenticate with ShipKit')
@@ -48,7 +49,13 @@ export const loginCommand = new Command('login')
         
         console.log(`${chalk.green('✓')} Authenticated successfully\n`);
         console.log(`Connected as:\n${chalk.cyan(response.user.email)}\n`);
-        console.log(`${chalk.dim('Account ready.')}\n`);
+        
+        const apiKey = APIKeyManager.getApiKey();
+        if (!apiKey) {
+          console.log(`ℹ No API key connected.\n\nRun:\n  ${chalk.cyan('shipkit api')}\n\nto connect your ShipKit account.\n`);
+        } else {
+          console.log(`${chalk.dim('Account ready.')}\n`);
+        }
       } else {
         throw new Error('Invalid response from server');
       }
