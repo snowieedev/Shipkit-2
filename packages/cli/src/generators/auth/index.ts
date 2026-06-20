@@ -24,7 +24,7 @@ export async function generateAuth() {
   // 2. Authentication Wizard
   const { authType } = await inquirer.prompt([
     {
-      type: 'list',
+      type: 'select',
       name: 'authType',
       message: 'Select Authentication Type:',
       choices: [
@@ -55,7 +55,7 @@ export async function generateAuth() {
 
   const { dbProvider } = await inquirer.prompt([
     {
-      type: 'list',
+      type: 'select',
       name: 'dbProvider',
       message: 'Database Provider:',
       choices: ['Supabase', 'PostgreSQL']
@@ -69,7 +69,7 @@ export async function generateAuth() {
     const emailOpts = await inquirer.prompt([
       { type: 'confirm', name: 'emailVerification', message: 'Enable Email Verification?', default: true },
       { type: 'confirm', name: 'forgotPassword', message: 'Enable Forgot Password?', default: true },
-      { type: 'list', name: 'sessionDuration', message: 'Session Duration:', choices: ['7 days', '30 days', 'custom'] }
+      { type: 'select', name: 'sessionDuration', message: 'Session Duration:', choices: ['7 days', '30 days', 'custom'] }
     ]);
     options.email = emailOpts;
     options.providers.push('email');
