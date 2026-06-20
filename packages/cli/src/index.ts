@@ -34,7 +34,7 @@ const displayBanner = () => {
 program
   .name('shipkit')
   .description('ShipKit CLI\n\nBuild Faster. Ship Smarter.')
-  .version('1.0.0', '-v, --version', 'Display CLI version')
+  .version('1.2.2', '-v, --version', 'Display CLI version')
   .helpOption('-h, --help', 'Display help information');
 
 program.addHelpText('beforeAll', () => {
