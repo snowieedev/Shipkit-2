@@ -42,7 +42,7 @@ export async function POST(request: Request) {
     // Lookup the key
     const { data: keyData, error: keyError } = await adminSupabase
       .from('api_keys')
-      .select('project_id, revoked, expires_at, user_id')
+      .select('project_id, revoked_at, user_id')
       .eq('key_hash', keyHash)
       .single()
 
@@ -61,16 +61,9 @@ export async function POST(request: Request) {
       )
     }
 
-    if (keyData.revoked) {
+    if (keyData.revoked_at) {
       return NextResponse.json(
         { success: false, error: 'API key has been revoked' },
-        { status: 403 }
-      )
-    }
-
-    if (keyData.expires_at && new Date(keyData.expires_at) < new Date()) {
-      return NextResponse.json(
-        { success: false, error: 'API key has expired' },
         { status: 403 }
       )
     }
