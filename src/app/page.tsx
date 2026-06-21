@@ -326,7 +326,7 @@ const HowItWorksSection = () => {
     {
       title: "Install Features",
       description: "Browse the registry and instantly add features to your codebase.",
-      benefits: ["shipkit add auth", "shipkit add billing"]
+      benefits: ["shipkit add billing"]
     }
   ];
 

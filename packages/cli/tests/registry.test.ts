@@ -11,9 +11,9 @@ describe('Feature Registry', () => {
   });
 
   it('should return a specific feature by id', () => {
-    const feature = getFeatureById('auth-supabase');
+    const feature = getFeatureById('payments-stripe');
     expect(feature).toBeDefined();
-    expect(feature?.name).toBe('Authentication');
+    expect(feature?.name).toBe('Payments');
   });
 
   it('should return undefined for non-existent feature', () => {

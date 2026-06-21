@@ -8,13 +8,6 @@ export interface Feature {
 
 export const featuresRegistry: Feature[] = [
   {
-    id: 'auth-supabase',
-    name: 'Authentication',
-    description: 'Supabase Authentication integration',
-    category: 'auth',
-    status: 'stable'
-  },
-  {
     id: 'payments-stripe',
     name: 'Payments',
     description: 'Stripe Payments integration',

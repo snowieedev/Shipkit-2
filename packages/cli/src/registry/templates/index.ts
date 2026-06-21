@@ -10,23 +10,23 @@ export const templatesRegistry: Template[] = [
   {
     id: 'nextjs-saas',
     name: 'Next.js SaaS',
-    description: 'A complete SaaS starter with authentication, billing, and dashboard',
+    description: 'A complete SaaS starter with billing and dashboard',
     framework: 'Next.js',
-    features: ['auth-supabase', 'payments-stripe', 'email-resend']
+    features: ['payments-stripe', 'email-resend']
   },
   {
     id: 'nextjs-starter',
     name: 'Next.js Starter',
-    description: 'A minimal Next.js starter with authentication',
+    description: 'A minimal Next.js starter',
     framework: 'Next.js',
-    features: ['auth-supabase']
+    features: []
   },
   {
     id: 'api-backend',
     name: 'API Backend',
     description: 'A robust Node.js API backend template',
     framework: 'Node.js',
-    features: ['auth-supabase', 'storage-s3']
+    features: ['storage-s3']
   }
 ];
 

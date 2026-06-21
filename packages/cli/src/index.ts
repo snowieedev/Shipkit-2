@@ -10,8 +10,6 @@ import { initCommand } from './commands/init.js';
 import { providersCommand } from './commands/providers.js';
 import { apiCommand } from './commands/api.js';
 import { whoamiCommand } from './commands/whoami.js';
-import { addCommand } from './commands/add.js';
-import { fixCommand } from './commands/fix.js';
 
 const program = new Command();
 
@@ -34,7 +32,7 @@ const displayBanner = () => {
 program
   .name('shipkit')
   .description('ShipKit CLI\n\nBuild Faster. Ship Smarter.')
-  .version('1.2.2', '-v, --version', 'Display CLI version')
+  .version('1.3.0', '-v, --version', 'Display CLI version')
   .helpOption('-h, --help', 'Display help information');
 
 program.addHelpText('beforeAll', () => {
@@ -52,7 +50,5 @@ program.addCommand(initCommand);
 program.addCommand(providersCommand);
 program.addCommand(apiCommand);
 program.addCommand(whoamiCommand);
-program.addCommand(addCommand);
-program.addCommand(fixCommand);
 
 program.parse(process.argv);
