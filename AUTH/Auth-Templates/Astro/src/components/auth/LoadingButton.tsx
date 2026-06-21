@@ -3,6 +3,7 @@ import { Button, type ButtonProps } from "@/components/ui/button"
 
 interface LoadingButtonProps extends ButtonProps {
   isLoading?: boolean;
+  children?: React.ReactNode;
 }
 
 export function LoadingButton({ isLoading, children, disabled, ...props }: LoadingButtonProps) {
