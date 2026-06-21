@@ -1,0 +1,40 @@
+---
+import AuthLayout from '@/layouts/AuthLayout.astro'
+import { AuthCard } from '@/components/auth/AuthCard'
+import { AuthError } from '@/components/auth/AuthError'
+
+// Extract error from query params if possible in Astro
+const errorType = Astro.url.searchParams.get('error') || 'UnknownError';
+const errorDescription = Astro.url.searchParams.get('error_description') || 'An unexpected authentication error occurred.';
+---
+
+<AuthLayout title="Authentication Error">
+  <AuthCard 
+    client:load 
+    title="Authentication Error" 
+    description="We couldn't sign you in."
+  >
+    <div class="flex flex-col gap-6">
+      <AuthError client:load message={errorDescription} />
+      
+      <div class="bg-muted/50 p-4 rounded-lg text-sm font-mono text-muted-foreground break-all">
+        Error Code: {errorType}
+      </div>
+
+      <div class="flex flex-col gap-3 mt-4">
+        <a 
+          href="/login" 
+          class="inline-flex w-full justify-center h-11 items-center rounded-md bg-neutral-900 px-4 py-2 text-sm font-medium text-white shadow transition-colors hover:bg-neutral-800 dark:bg-neutral-100 dark:text-neutral-900"
+        >
+          Try Again
+        </a>
+        <a 
+          href="/" 
+          class="inline-flex w-full justify-center h-11 items-center rounded-md border border-input bg-background px-4 py-2 text-sm font-medium shadow-sm transition-colors hover:bg-accent hover:text-accent-foreground"
+        >
+          Return Home
+        </a>
+      </div>
+    </div>
+  </AuthCard>
+</AuthLayout>

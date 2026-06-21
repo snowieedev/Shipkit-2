@@ -1,0 +1,33 @@
+{
+  "name": "shipkit-astro-auth-template",
+  "version": "1.0.0",
+  "description": "ShipKit Astro Authentication Template",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.9.9",
+    "@astrojs/react": "^3.1.0",
+    "@astrojs/tailwind": "^5.1.0",
+    "@radix-ui/react-label": "^2.1.10",
+    "@radix-ui/react-slot": "^1.3.0",
+    "@types/react": "^18.2.74",
+    "@types/react-dom": "^18.2.24",
+    "astro": "^4.5.11",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.0",
+    "lucide-react": "^0.365.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "tailwind-merge": "^2.2.2",
+    "tailwindcss": "^3.4.3",
+    "typescript": "^5.9.3"
+  },
+  "devDependencies": {
+    "@types/node": "^26.0.0"
+  }
+}
