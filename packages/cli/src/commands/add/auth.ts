@@ -21,19 +21,19 @@ export const authCommand = new Command('auth')
     try {
       const answers = await inquirer.prompt([
         {
-          type: 'list',
+          type: 'select',
           name: 'framework',
           message: 'Select Tech Stack:',
           choices: registry.templates,
         },
         {
-          type: 'list',
+          type: 'select',
           name: 'database',
           message: 'Select Database:',
           choices: registry.databases,
         },
         {
-          type: 'list',
+          type: 'select',
           name: 'engine',
           message: 'Select Auth Engine:',
           choices: registry.engines,
