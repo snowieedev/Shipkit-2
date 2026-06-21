@@ -7,10 +7,10 @@ export function getEnvironmentConfig() {
   // Note: ShipKit specifications require consuming configuration only through environment injection
   // or globally available environment variables.
   
-  const env = typeof process !== 'undefined' && process.env ? process.env : {};
+  const env = (typeof process !== 'undefined' && process.env ? process.env : {}) as Record<string, string | undefined>;
   
   // Validate that required Clerk variables are present
-  validateEnvironment(env as Record<string, string | undefined>);
+  validateEnvironment(env);
 
   return {
     CLERK_SECRET_KEY: env.CLERK_SECRET_KEY!,
