@@ -1,0 +1,26 @@
+---
+import AuthLayout from '@/layouts/AuthLayout.astro'
+import { AuthCard } from '@/components/auth/AuthCard'
+
+// ShipKit Auth Engine Injection
+// {{AUTH_ENGINE}}
+---
+
+<AuthLayout title="Authenticating">
+  <AuthCard 
+    client:load 
+    title="Authenticating" 
+    description="Please wait while we complete your sign in..."
+  >
+    <div class="flex justify-center items-center py-8">
+      <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-primary"></div>
+    </div>
+    <script is:inline>
+      // AUTH_ENGINE_INJECTION
+      // Fallback redirect if script fails
+      setTimeout(() => {
+        window.location.href = '/login?error=CallbackFailed'
+      }, 5000)
+    </script>
+  </AuthCard>
+</AuthLayout>

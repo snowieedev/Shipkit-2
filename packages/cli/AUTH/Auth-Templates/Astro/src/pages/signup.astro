@@ -1,0 +1,15 @@
+---
+import AuthLayout from '@/layouts/AuthLayout.astro'
+import { AuthCard } from '@/components/auth/AuthCard'
+import { SignupForm } from '@/components/auth/SignupForm'
+---
+
+<AuthLayout title="Create Account">
+  <AuthCard 
+    client:load 
+    title="Create an account" 
+    description="Enter your details below to create your account"
+  >
+    <SignupForm client:load />
+  </AuthCard>
+</AuthLayout>
